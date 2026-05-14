@@ -1,0 +1,639 @@
+{
+    "browsingFontFile": "SFSymbolsFallback.otf",
+    
+    "managed": [
+        {
+            "displayName" : "SF Pro",
+            "styles" : [
+                {
+                    "displayName" : "SF Pro Ultralight",
+                    "postScriptName" : "SFPro-Ultralight",
+                    "styleName" : "Ultralight"
+                },
+                {
+                    "displayName" : "SF Pro Ultralight Italic",
+                    "postScriptName" : "SFPro-UltralightItalic",
+                    "styleName" : "Ultralight Italic"
+                },
+                {
+                    "displayName" : "SF Pro Thin",
+                    "postScriptName" : "SFPro-Thin",
+                    "styleName" : "Thin"
+                },
+                {
+                    "displayName" : "SF Pro Thin Italic",
+                    "postScriptName" : "SFPro-ThinItalic",
+                    "styleName" : "Thin Italic"
+                },
+                {
+                    "displayName" : "SF Pro Light",
+                    "postScriptName" : "SFPro-Light",
+                    "styleName" : "Light"
+                },
+                {
+                    "displayName" : "SF Pro Light Italic",
+                    "postScriptName" : "SFPro-LightItalic",
+                    "styleName" : "Light Italic"
+                },
+                {
+                    "displayName" : "SF Pro Regular",
+                    "postScriptName" : "SFPro-Regular",
+                    "styleName" : "Regular"
+                },
+                {
+                    "displayName" : "SF Pro Regular Italic",
+                    "postScriptName" : "SFPro-RegularItalic",
+                    "styleName" : "Regular Italic"
+                },
+                {
+                    "displayName" : "SF Pro Medium",
+                    "postScriptName" : "SFPro-Medium",
+                    "styleName" : "Medium"
+                },
+                {
+                    "displayName" : "SF Pro Medium Italic",
+                    "postScriptName" : "SFPro-MediumItalic",
+                    "styleName" : "Medium Italic"
+                },
+                {
+                    "displayName" : "SF Pro Semibold",
+                    "postScriptName" : "SFPro-Semibold",
+                    "styleName" : "Semibold"
+                },
+                {
+                    "displayName" : "SF Pro Semibold Italic",
+                    "postScriptName" : "SFPro-SemiboldItalic",
+                    "styleName" : "Semibold Italic"
+                },
+                {
+                    "displayName" : "SF Pro Bold",
+                    "postScriptName" : "SFPro-Bold",
+                    "styleName" : "Bold"
+                },
+                {
+                    "displayName" : "SF Pro Bold Italic",
+                    "postScriptName" : "SFPro-BoldItalic",
+                    "styleName" : "Bold Italic"
+                },
+                {
+                    "displayName" : "SF Pro Heavy",
+                    "postScriptName" : "SFPro-Heavy",
+                    "styleName" : "Heavy"
+                },
+                {
+                    "displayName" : "SF Pro Heavy Italic",
+                    "postScriptName" : "SFPro-HeavyItalic",
+                    "styleName" : "Heavy Italic"
+                },
+                {
+                    "displayName" : "SF Pro Black",
+                    "postScriptName" : "SFPro-Black",
+                    "styleName" : "Black"
+                },
+                {
+                    "displayName" : "SF Pro Black Italic",
+                    "postScriptName" : "SFPro-BlackItalic",
+                    "styleName" : "Black Italic"
+                }
+            ],
+            "version" : "21.1d1e1"
+        },
+        {
+            "displayName" : "SF Pro Display",
+            "styles" : [
+                {
+                    "displayName" : "SF Pro Display Ultralight",
+                    "postScriptName" : "SFProDisplay-Ultralight",
+                    "styleName" : "Ultralight"
+                },
+                {
+                    "displayName" : "SF Pro Display Ultralight Italic",
+                    "postScriptName" : "SFProDisplay-UltralightItalic",
+                    "styleName" : "Ultralight Italic"
+                },
+                {
+                    "displayName" : "SF Pro Display Thin",
+                    "postScriptName" : "SFProDisplay-Thin",
+                    "styleName" : "Thin"
+                },
+                {
+                    "displayName" : "SF Pro Display Thin Italic",
+                    "postScriptName" : "SFProDisplay-ThinItalic",
+                    "styleName" : "Thin Italic"
+                },
+                {
+                    "displayName" : "SF Pro Display Light",
+                    "postScriptName" : "SFProDisplay-Light",
+                    "styleName" : "Light"
+                },
+                {
+                    "displayName" : "SF Pro Display Light Italic",
+                    "postScriptName" : "SFProDisplay-LightItalic",
+                    "styleName" : "Light Italic"
+                },
+                {
+                    "displayName" : "SF Pro Display Regular",
+                    "postScriptName" : "SFProDisplay-Regular",
+                    "styleName" : "Regular"
+                },
+                {
+                    "displayName" : "SF Pro Display Regular Italic",
+                    "postScriptName" : "SFProDisplay-RegularItalic",
+                    "styleName" : "Regular Italic"
+                },
+                {
+                    "displayName" : "SF Pro Display Medium",
+                    "postScriptName" : "SFProDisplay-Medium",
+                    "styleName" : "Medium"
+                },
+                {
+                    "displayName" : "SF Pro Display Medium Italic",
+                    "postScriptName" : "SFProDisplay-MediumItalic",
+                    "styleName" : "Medium Italic"
+                },
+                {
+                    "displayName" : "SF Pro Display Semibold",
+                    "postScriptName" : "SFProDisplay-Semibold",
+                    "styleName" : "Semibold"
+                },
+                {
+                    "displayName" : "SF Pro Display Semibold Italic",
+                    "postScriptName" : "SFProDisplay-SemiboldItalic",
+                    "styleName" : "Semibold Italic"
+                },
+                {
+                    "displayName" : "SF Pro Display Bold",
+                    "postScriptName" : "SFProDisplay-Bold",
+                    "styleName" : "Bold"
+                },
+                {
+                    "displayName" : "SF Pro Display Bold Italic",
+                    "postScriptName" : "SFProDisplay-BoldItalic",
+                    "styleName" : "Bold Italic"
+                },
+                {
+                    "displayName" : "SF Pro Display Heavy",
+                    "postScriptName" : "SFProDisplay-Heavy",
+                    "styleName" : "Heavy"
+                },
+                {
+                    "displayName" : "SF Pro Display Heavy Italic",
+                    "postScriptName" : "SFProDisplay-HeavyItalic",
+                    "styleName" : "Heavy Italic"
+                },
+                {
+                    "displayName" : "SF Pro Display Black",
+                    "postScriptName" : "SFProDisplay-Black",
+                    "styleName" : "Black"
+                },
+                {
+                    "displayName" : "SF Pro Display Black Italic",
+                    "postScriptName" : "SFProDisplay-BlackItalic",
+                    "styleName" : "Black Italic"
+                }
+            ],
+            "version" : "21.1d1e1"
+        },
+        {
+            "displayName" : "SF Pro Text",
+            "styles" : [
+                {
+                    "displayName" : "SF Pro Text Ultralight",
+                    "postScriptName" : "SFProText-Ultralight",
+                    "styleName" : "Ultralight"
+                },
+                {
+                    "displayName" : "SF Pro Text Ultralight Italic",
+                    "postScriptName" : "SFProText-UltralightItalic",
+                    "styleName" : "Ultralight Italic"
+                },
+                {
+                    "displayName" : "SF Pro Text Thin",
+                    "postScriptName" : "SFProText-Thin",
+                    "styleName" : "Thin"
+                },
+                {
+                    "displayName" : "SF Pro Text Thin Italic",
+                    "postScriptName" : "SFProText-ThinItalic",
+                    "styleName" : "Thin Italic"
+                },
+                {
+                    "displayName" : "SF Pro Text Light",
+                    "postScriptName" : "SFProText-Light",
+                    "styleName" : "Light"
+                },
+                {
+                    "displayName" : "SF Pro Text Light Italic",
+                    "postScriptName" : "SFProText-LightItalic",
+                    "styleName" : "Light Italic"
+                },
+                {
+                    "displayName" : "SF Pro Text Regular",
+                    "postScriptName" : "SFProText-Regular",
+                    "styleName" : "Regular"
+                },
+                {
+                    "displayName" : "SF Pro Text Regular Italic",
+                    "postScriptName" : "SFProText-RegularItalic",
+                    "styleName" : "Regular Italic"
+                },
+                {
+                    "displayName" : "SF Pro Text Medium",
+                    "postScriptName" : "SFProText-Medium",
+                    "styleName" : "Medium"
+                },
+                {
+                    "displayName" : "SF Pro Text Medium Italic",
+                    "postScriptName" : "SFProText-MediumItalic",
+                    "styleName" : "Medium Italic"
+                },
+                {
+                    "displayName" : "SF Pro Text Semibold",
+                    "postScriptName" : "SFProText-Semibold",
+                    "styleName" : "Semibold"
+                },
+                {
+                    "displayName" : "SF Pro Text Semibold Italic",
+                    "postScriptName" : "SFProText-SemiboldItalic",
+                    "styleName" : "Semibold Italic"
+                },
+                {
+                    "displayName" : "SF Pro Text Bold",
+                    "postScriptName" : "SFProText-Bold",
+                    "styleName" : "Bold"
+                },
+                {
+                    "displayName" : "SF Pro Text Bold Italic",
+                    "postScriptName" : "SFProText-BoldItalic",
+                    "styleName" : "Bold Italic"
+                },
+                {
+                    "displayName" : "SF Pro Text Heavy",
+                    "postScriptName" : "SFProText-Heavy",
+                    "styleName" : "Heavy"
+                },
+                {
+                    "displayName" : "SF Pro Text Heavy Italic",
+                    "postScriptName" : "SFProText-HeavyItalic",
+                    "styleName" : "Heavy Italic"
+                },
+                {
+                    "displayName" : "SF Pro Text Black",
+                    "postScriptName" : "SFProText-Black",
+                    "styleName" : "Black"
+                },
+                {
+                    "displayName" : "SF Pro Text Black Italic",
+                    "postScriptName" : "SFProText-BlackItalic",
+                    "styleName" : "Black Italic"
+                }
+            ],
+            "version" : "21.1d1e1"
+        },
+        {
+            "displayName" : "SF Pro Rounded",
+            "styles" : [
+                {
+                    "displayName" : "SF Pro Rounded Ultralight",
+                    "postScriptName" : "SFProRounded-Ultralight",
+                    "styleName" : "Ultralight"
+                },
+                {
+                    "displayName" : "SF Pro Rounded Thin",
+                    "postScriptName" : "SFProRounded-Thin",
+                    "styleName" : "Thin"
+                },
+                {
+                    "displayName" : "SF Pro Rounded Light",
+                    "postScriptName" : "SFProRounded-Light",
+                    "styleName" : "Light"
+                },
+                {
+                    "displayName" : "SF Pro Rounded Regular",
+                    "postScriptName" : "SFProRounded-Regular",
+                    "styleName" : "Regular"
+                },
+                {
+                    "displayName" : "SF Pro Rounded Medium",
+                    "postScriptName" : "SFProRounded-Medium",
+                    "styleName" : "Medium"
+                },
+                {
+                    "displayName" : "SF Pro Rounded Semibold",
+                    "postScriptName" : "SFProRounded-Semibold",
+                    "styleName" : "Semibold"
+                },
+                {
+                    "displayName" : "SF Pro Rounded Bold",
+                    "postScriptName" : "SFProRounded-Bold",
+                    "styleName" : "Bold"
+                },
+                {
+                    "displayName" : "SF Pro Rounded Heavy",
+                    "postScriptName" : "SFProRounded-Heavy",
+                    "styleName" : "Heavy"
+                },
+                {
+                    "displayName" : "SF Pro Rounded Black",
+                    "postScriptName" : "SFProRounded-Black",
+                    "styleName" : "Black"
+                }
+            ],
+            "version" : "21.1d1e1"
+        },
+        {
+            "displayName" : "SF Compact",
+            "styles" : [
+                {
+                    "displayName" : "SF Compact Ultralight",
+                    "postScriptName" : "SFCompact-Ultralight",
+                    "styleName" : "Ultralight"
+                },
+                {
+                    "displayName" : "SF Compact Ultralight Italic",
+                    "postScriptName" : "SFCompact-UltralightItalic",
+                    "styleName" : "Ultralight Italic"
+                },
+                {
+                    "displayName" : "SF Compact Thin",
+                    "postScriptName" : "SFCompact-Thin",
+                    "styleName" : "Thin"
+                },
+                {
+                    "displayName" : "SF Compact Thin Italic",
+                    "postScriptName" : "SFCompact-ThinItalic",
+                    "styleName" : "Thin Italic"
+                },
+                {
+                    "displayName" : "SF Compact Light",
+                    "postScriptName" : "SFCompact-Light",
+                    "styleName" : "Light"
+                },
+                {
+                    "displayName" : "SF Compact Light Italic",
+                    "postScriptName" : "SFCompact-LightItalic",
+                    "styleName" : "Light Italic"
+                },
+                {
+                    "displayName" : "SF Compact Regular",
+                    "postScriptName" : "SFCompact-Regular",
+                    "styleName" : "Regular"
+                },
+                {
+                    "displayName" : "SF Compact Regular Italic",
+                    "postScriptName" : "SFCompact-RegularItalic",
+                    "styleName" : "Regular Italic"
+                },
+                {
+                    "displayName" : "SF Compact Medium",
+                    "postScriptName" : "SFCompact-Medium",
+                    "styleName" : "Medium"
+                },
+                {
+                    "displayName" : "SF Compact Medium Italic",
+                    "postScriptName" : "SFCompact-MediumItalic",
+                    "styleName" : "Medium Italic"
+                },
+                {
+                    "displayName" : "SF Compact Semibold",
+                    "postScriptName" : "SFCompact-Semibold",
+                    "styleName" : "Semibold"
+                },
+                {
+                    "displayName" : "SF Compact Semibold Italic",
+                    "postScriptName" : "SFCompact-SemiboldItalic",
+                    "styleName" : "Semibold Italic"
+                },
+                {
+                    "displayName" : "SF Compact Bold",
+                    "postScriptName" : "SFCompact-Bold",
+                    "styleName" : "Bold"
+                },
+                {
+                    "displayName" : "SF Compact Bold Italic",
+                    "postScriptName" : "SFCompact-BoldItalic",
+                    "styleName" : "Bold Italic"
+                },
+                {
+                    "displayName" : "SF Compact Heavy",
+                    "postScriptName" : "SFCompact-Heavy",
+                    "styleName" : "Heavy"
+                },
+                {
+                    "displayName" : "SF Compact Heavy Italic",
+                    "postScriptName" : "SFCompact-HeavyItalic",
+                    "styleName" : "Heavy Italic"
+                },
+                {
+                    "displayName" : "SF Compact Black",
+                    "postScriptName" : "SFCompact-Black",
+                    "styleName" : "Black"
+                },
+                {
+                    "displayName" : "SF Compact Black Italic",
+                    "postScriptName" : "SFCompact-BlackItalic",
+                    "styleName" : "Black Italic"
+                }
+            ],
+            "version" : "21.1d1e1"
+        },
+        {
+            "displayName" : "SF Compact Display",
+            "styles" : [
+                {
+                    "displayName" : "SF Compact Display Ultralight",
+                    "postScriptName" : "SFCompactDisplay-Ultralight",
+                    "styleName" : "Ultralight"
+                },
+                {
+                    "displayName" : "SF Compact Display Thin",
+                    "postScriptName" : "SFCompactDisplay-Thin",
+                    "styleName" : "Thin"
+                },
+                {
+                    "displayName" : "SF Compact Display Light",
+                    "postScriptName" : "SFCompactDisplay-Light",
+                    "styleName" : "Light"
+                },
+                {
+                    "displayName" : "SF Compact Display Regular",
+                    "postScriptName" : "SFCompactDisplay-Regular",
+                    "styleName" : "Regular"
+                },
+                {
+                    "displayName" : "SF Compact Display Medium",
+                    "postScriptName" : "SFCompactDisplay-Medium",
+                    "styleName" : "Medium"
+                },
+                {
+                    "displayName" : "SF Compact Display Semibold",
+                    "postScriptName" : "SFCompactDisplay-Semibold",
+                    "styleName" : "Semibold"
+                },
+                {
+                    "displayName" : "SF Compact Display Bold",
+                    "postScriptName" : "SFCompactDisplay-Bold",
+                    "styleName" : "Bold"
+                },
+                {
+                    "displayName" : "SF Compact Display Heavy",
+                    "postScriptName" : "SFCompactDisplay-Heavy",
+                    "styleName" : "Heavy"
+                },
+                {
+                    "displayName" : "SF Compact Display Black",
+                    "postScriptName" : "SFCompactDisplay-Black",
+                    "styleName" : "Black"
+                }
+            ],
+            "version" : "21.1d1e1"
+        },
+        {
+            "displayName" : "SF Compact Text",
+            "styles" : [
+                {
+                    "displayName" : "SF Compact Text Ultralight",
+                    "postScriptName" : "SFCompactText-Ultralight",
+                    "styleName" : "Ultralight"
+                },
+                {
+                    "displayName" : "SF Compact Text Ultralight Italic",
+                    "postScriptName" : "SFCompactText-UltralightItalic",
+                    "styleName" : "Ultralight Italic"
+                },
+                {
+                    "displayName" : "SF Compact Text Thin",
+                    "postScriptName" : "SFCompactText-Thin",
+                    "styleName" : "Thin"
+                },
+                {
+                    "displayName" : "SF Compact Text Thin Italic",
+                    "postScriptName" : "SFCompactText-ThinItalic",
+                    "styleName" : "Thin Italic"
+                },
+                {
+                    "displayName" : "SF Compact Text Light",
+                    "postScriptName" : "SFCompactText-Light",
+                    "styleName" : "Light"
+                },
+                {
+                    "displayName" : "SF Compact Text Light Italic",
+                    "postScriptName" : "SFCompactText-LightItalic",
+                    "styleName" : "Light Italic"
+                },
+                {
+                    "displayName" : "SF Compact Text Regular",
+                    "postScriptName" : "SFCompactText-Regular",
+                    "styleName" : "Regular"
+                },
+                {
+                    "displayName" : "SF Compact Text Italic",
+                    "postScriptName" : "SFCompactText-Italic",
+                    "styleName" : "Italic"
+                },
+                {
+                    "displayName" : "SF Compact Text Medium",
+                    "postScriptName" : "SFCompactText-Medium",
+                    "styleName" : "Medium"
+                },
+                {
+                    "displayName" : "SF Compact Text Medium Italic",
+                    "postScriptName" : "SFCompactText-MediumItalic",
+                    "styleName" : "Medium Italic"
+                },
+                {
+                    "displayName" : "SF Compact Text Semibold",
+                    "postScriptName" : "SFCompactText-Semibold",
+                    "styleName" : "Semibold"
+                },
+                {
+                    "displayName" : "SF Compact Text Semibold Italic",
+                    "postScriptName" : "SFCompactText-SemiboldItalic",
+                    "styleName" : "Semibold Italic"
+                },
+                {
+                    "displayName" : "SF Compact Text Bold",
+                    "postScriptName" : "SFCompactText-Bold",
+                    "styleName" : "Bold"
+                },
+                {
+                    "displayName" : "SF Compact Text Bold Italic",
+                    "postScriptName" : "SFCompactText-BoldItalic",
+                    "styleName" : "Bold Italic"
+                },
+                {
+                    "displayName" : "SF Compact Text Heavy",
+                    "postScriptName" : "SFCompactText-Heavy",
+                    "styleName" : "Heavy"
+                },
+                {
+                    "displayName" : "SF Compact Text Heavy Italic",
+                    "postScriptName" : "SFCompactText-HeavyItalic",
+                    "styleName" : "Heavy Italic"
+                },
+                {
+                    "displayName" : "SF Compact Text Black",
+                    "postScriptName" : "SFCompactText-Black",
+                    "styleName" : "Black"
+                },
+                {
+                    "displayName" : "SF Compact Text Black Italic",
+                    "postScriptName" : "SFCompactText-BlackItalic",
+                    "styleName" : "Black Italic"
+                }
+            ],
+            "version" : "21.1d1e1"
+        },
+        {
+            "displayName" : "SF Compact Rounded",
+            "styles" : [
+                {
+                    "displayName" : "SF Compact Rounded Ultralight",
+                    "postScriptName" : "SFCompactRounded-Ultralight",
+                    "styleName" : "Ultralight"
+                },
+                {
+                    "displayName" : "SF Compact Rounded Thin",
+                    "postScriptName" : "SFCompactRounded-Thin",
+                    "styleName" : "Thin"
+                },
+                {
+                    "displayName" : "SF Compact Rounded Light",
+                    "postScriptName" : "SFCompactRounded-Light",
+                    "styleName" : "Light"
+                },
+                {
+                    "displayName" : "SF Compact Rounded Regular",
+                    "postScriptName" : "SFCompactRounded-Regular",
+                    "styleName" : "Regular"
+                },
+                {
+                    "displayName" : "SF Compact Rounded Medium",
+                    "postScriptName" : "SFCompactRounded-Medium",
+                    "styleName" : "Medium"
+                },
+                {
+                    "displayName" : "SF Compact Rounded Semibold",
+                    "postScriptName" : "SFCompactRounded-Semibold",
+                    "styleName" : "Semibold"
+                },
+                {
+                    "displayName" : "SF Compact Rounded Bold",
+                    "postScriptName" : "SFCompactRounded-Bold",
+                    "styleName" : "Bold"
+                },
+                {
+                    "displayName" : "SF Compact Rounded Heavy",
+                    "postScriptName" : "SFCompactRounded-Heavy",
+                    "styleName" : "Heavy"
+                },
+                {
+                    "displayName" : "SF Compact Rounded Black",
+                    "postScriptName" : "SFCompactRounded-Black",
+                    "styleName" : "Black"
+                }
+            ],
+            "version" : "21.1d1e1"
+        }
+    ]
+}

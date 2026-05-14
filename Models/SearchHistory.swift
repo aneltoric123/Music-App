@@ -9,12 +9,14 @@ import Foundation
 import SwiftData
 
 @Model
-class SearchHistory {
+final class SearchHistory {
 
     var id: UUID = UUID()
     var text: String
     var date: Date = Date()
-    init(text: String) {
+    @Relationship var user:User
+    init(text: String,user:User) {
         self.text = text
+        self.user = user
     }
 }
