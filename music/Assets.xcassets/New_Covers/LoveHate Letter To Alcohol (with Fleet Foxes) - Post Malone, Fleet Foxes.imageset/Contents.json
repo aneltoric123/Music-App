@@ -1,0 +1,21 @@
+{
+  "images" : [
+    {
+      "filename" : "LoveHate Letter To Alcohol (with Fleet Foxes) - Post Malone, Fleet Foxes.jpg",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

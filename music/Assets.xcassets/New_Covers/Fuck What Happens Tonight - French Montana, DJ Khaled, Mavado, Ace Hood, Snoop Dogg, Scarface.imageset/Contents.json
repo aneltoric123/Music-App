@@ -1,0 +1,21 @@
+{
+  "images" : [
+    {
+      "filename" : "Fuck What Happens Tonight - French Montana, DJ Khaled, Mavado, Ace Hood, Snoop Dogg, Scarface.jpg",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

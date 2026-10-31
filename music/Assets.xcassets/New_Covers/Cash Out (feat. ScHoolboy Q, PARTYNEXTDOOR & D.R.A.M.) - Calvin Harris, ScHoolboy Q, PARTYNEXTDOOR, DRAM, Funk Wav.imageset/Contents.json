@@ -1,0 +1,21 @@
+{
+  "images" : [
+    {
+      "filename" : "Cash Out (feat. ScHoolboy Q, PARTYNEXTDOOR & D.R.A.M.) - Calvin Harris, ScHoolboy Q, PARTYNEXTDOOR, DRAM, Funk Wav.jpg",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "images" : [
+    {
+      "filename" : "How Do U Want It (ft. K-Ci & JoJo) - 2Pac, K-Ci & JoJo.jpg",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

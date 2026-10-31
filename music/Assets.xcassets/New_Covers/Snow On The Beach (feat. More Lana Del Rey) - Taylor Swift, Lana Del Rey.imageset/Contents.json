@@ -1,0 +1,21 @@
+{
+  "images" : [
+    {
+      "filename" : "Snow On The Beach (feat. More Lana Del Rey) - Taylor Swift, Lana Del Rey.jpg",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

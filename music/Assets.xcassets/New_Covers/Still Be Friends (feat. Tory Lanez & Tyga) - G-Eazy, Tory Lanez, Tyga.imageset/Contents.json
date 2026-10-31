@@ -1,0 +1,21 @@
+{
+  "images" : [
+    {
+      "filename" : "Still Be Friends (feat. Tory Lanez & Tyga) - G-Eazy, Tory Lanez, Tyga.jpg",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

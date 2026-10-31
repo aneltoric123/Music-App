@@ -1,0 +1,21 @@
+{
+  "images" : [
+    {
+      "filename" : "Whatever You Need (feat. Chris Brown & Ty Dolla $ign) - Meek Mill, Ty Dolla $ign, Chris Brown.jpg",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

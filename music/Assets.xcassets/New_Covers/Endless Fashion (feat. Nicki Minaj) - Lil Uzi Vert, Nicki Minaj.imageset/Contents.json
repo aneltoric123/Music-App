@@ -1,0 +1,21 @@
+{
+  "images" : [
+    {
+      "filename" : "Endless Fashion (feat. Nicki Minaj) - Lil Uzi Vert, Nicki Minaj.jpg",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

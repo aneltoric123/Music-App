@@ -1,0 +1,21 @@
+{
+  "images" : [
+    {
+      "filename" : "Killer for Real - DJ Whoo Kid, 50 Cent, Prodigy, 40 Glocc.jpg",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

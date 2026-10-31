@@ -1,0 +1,21 @@
+{
+  "images" : [
+    {
+      "filename" : "Hair Salon (with Cozz feat. G Perico & Reason) - Dreamville, Cozz, G Perico, REASON.jpg",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

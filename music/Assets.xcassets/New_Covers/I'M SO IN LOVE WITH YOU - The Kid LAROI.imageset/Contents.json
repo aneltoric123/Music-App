@@ -1,0 +1,21 @@
+{
+  "images" : [
+    {
+      "filename" : "I'M SO IN LOVE WITH YOU - The Kid LAROI.jpg",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

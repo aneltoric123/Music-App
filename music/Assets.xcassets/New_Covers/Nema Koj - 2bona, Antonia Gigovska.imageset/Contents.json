@@ -1,0 +1,21 @@
+{
+  "images" : [
+    {
+      "filename" : "Nema Koj - 2bona, Antonia Gigovska.jpg",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

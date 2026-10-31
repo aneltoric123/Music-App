@@ -1,0 +1,21 @@
+{
+  "images" : [
+    {
+      "filename" : "Offshore (feat. Young Thug) - Rae Sremmurd, Swae Lee, Slim Jxmmi, Young Thug.jpg",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

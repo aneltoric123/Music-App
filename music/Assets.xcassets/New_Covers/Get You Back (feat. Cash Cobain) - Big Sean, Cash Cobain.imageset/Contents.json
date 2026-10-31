@@ -1,0 +1,21 @@
+{
+  "images" : [
+    {
+      "filename" : "Get You Back (feat. Cash Cobain) - Big Sean, Cash Cobain.jpg",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "images" : [
+    {
+      "filename" : "World Don't Take Me Personally (feat. 2 Pac, 2 Scoops) - Swoop G, 2Pac, 2 Scoops.jpg",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

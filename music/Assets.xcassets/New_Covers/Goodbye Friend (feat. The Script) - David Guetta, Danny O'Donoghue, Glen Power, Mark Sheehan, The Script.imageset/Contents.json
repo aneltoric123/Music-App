@@ -1,0 +1,21 @@
+{
+  "images" : [
+    {
+      "filename" : "Goodbye Friend (feat. The Script) - David Guetta, Danny O'Donoghue, Glen Power, Mark Sheehan, The Script.jpg",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "images" : [
+    {
+      "filename" : "Thug Passion (ft. Jewell, Outlawz, The Storm) - 2Pac, Jewell, Storm, Outlawz.jpg",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

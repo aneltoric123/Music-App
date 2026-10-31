@@ -1,0 +1,21 @@
+{
+  "images" : [
+    {
+      "filename" : "Lust For Life (with The Weeknd) - Lana Del Rey, The Weeknd.jpg",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

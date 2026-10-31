@@ -1,0 +1,21 @@
+{
+  "images" : [
+    {
+      "filename" : "Thin Line (feat. Buffalo Madonna) - Macklemore & Ryan Lewis, Macklemore, Ryan Lewis, Buffalo Madonna.jpg",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "images" : [
+    {
+      "filename" : "Candy Necklace (feat. Jon Batiste) - Lana Del Rey, Jon Batiste.jpg",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

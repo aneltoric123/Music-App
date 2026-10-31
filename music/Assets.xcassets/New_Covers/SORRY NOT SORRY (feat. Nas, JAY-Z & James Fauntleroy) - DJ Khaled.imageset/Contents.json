@@ -1,0 +1,21 @@
+{
+  "images" : [
+    {
+      "filename" : "SORRY NOT SORRY (feat. Nas, JAY-Z & James Fauntleroy) - DJ Khaled.jpg",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

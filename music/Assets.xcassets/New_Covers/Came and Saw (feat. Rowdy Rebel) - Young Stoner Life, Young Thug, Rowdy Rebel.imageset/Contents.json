@@ -1,0 +1,21 @@
+{
+  "images" : [
+    {
+      "filename" : "Came and Saw (feat. Rowdy Rebel) - Young Stoner Life, Young Thug, Rowdy Rebel.jpg",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

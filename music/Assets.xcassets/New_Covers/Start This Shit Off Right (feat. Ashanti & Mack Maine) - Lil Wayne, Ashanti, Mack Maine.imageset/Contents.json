@@ -1,0 +1,21 @@
+{
+  "images" : [
+    {
+      "filename" : "Start This Shit Off Right (feat. Ashanti & Mack Maine) - Lil Wayne, Ashanti, Mack Maine.jpg",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

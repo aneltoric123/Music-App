@@ -1,0 +1,21 @@
+{
+  "images" : [
+    {
+      "filename" : "Bitch Please II - Eminem, Dr. Dre, Snoop Dogg, Xzibit, Nate Dogg.jpg",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

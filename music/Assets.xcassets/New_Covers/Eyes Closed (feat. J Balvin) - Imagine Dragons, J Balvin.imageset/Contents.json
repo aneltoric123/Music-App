@@ -1,0 +1,21 @@
+{
+  "images" : [
+    {
+      "filename" : "Eyes Closed (feat. J Balvin) - Imagine Dragons, J Balvin.jpg",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

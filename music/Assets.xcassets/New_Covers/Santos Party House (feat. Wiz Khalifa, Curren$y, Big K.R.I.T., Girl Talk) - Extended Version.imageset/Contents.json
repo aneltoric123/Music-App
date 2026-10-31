@@ -1,0 +1,21 @@
+{
+  "images" : [
+    {
+      "filename" : "Santos Party House (feat. Wiz Khalifa, Curren$y, Big K.R.I.T., Girl Talk) - Extended Version.jpg",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

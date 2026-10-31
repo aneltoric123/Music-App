@@ -1,0 +1,21 @@
+{
+  "images" : [
+    {
+      "filename" : "Droptop in the Rain (feat. Tory Lanez) - Ty Dolla $ign, Tory Lanez.jpg",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "images" : [
+    {
+      "filename" : "Ti Si Zivot A I Greska - Darko Lazic, Andreana Čekić.jpg",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

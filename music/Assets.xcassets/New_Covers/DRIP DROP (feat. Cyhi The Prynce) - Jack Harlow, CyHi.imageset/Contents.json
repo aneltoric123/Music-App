@@ -1,0 +1,21 @@
+{
+  "images" : [
+    {
+      "filename" : "DRIP DROP (feat. Cyhi The Prynce) - Jack Harlow, CyHi.jpg",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

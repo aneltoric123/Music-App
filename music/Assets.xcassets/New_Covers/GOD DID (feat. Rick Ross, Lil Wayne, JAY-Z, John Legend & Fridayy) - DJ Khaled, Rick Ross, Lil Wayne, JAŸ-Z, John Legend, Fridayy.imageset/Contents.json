@@ -1,0 +1,21 @@
+{
+  "images" : [
+    {
+      "filename" : "GOD DID (feat. Rick Ross, Lil Wayne, JAY-Z, John Legend & Fridayy) - DJ Khaled, Rick Ross, Lil Wayne, JAŸ-Z, John Legend, Fridayy.jpg",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

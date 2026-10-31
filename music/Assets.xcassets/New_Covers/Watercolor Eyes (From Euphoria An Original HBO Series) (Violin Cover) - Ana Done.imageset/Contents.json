@@ -1,0 +1,21 @@
+{
+  "images" : [
+    {
+      "filename" : "Watercolor Eyes (From Euphoria An Original HBO Series) (Violin Cover) - Ana Done.jpg",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

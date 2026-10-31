@@ -1,0 +1,21 @@
+{
+  "images" : [
+    {
+      "filename" : "Demons (feat. Fivio Foreign & Sosa Geek) - Drake, Fivio Foreign, Sosa Geek.jpg",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "images" : [
+    {
+      "filename" : "I U Vatru, I U Vodu - Seka Aleksić.jpg",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

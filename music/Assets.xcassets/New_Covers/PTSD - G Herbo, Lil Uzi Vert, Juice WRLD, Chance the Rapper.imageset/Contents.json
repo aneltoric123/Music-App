@@ -1,0 +1,21 @@
+{
+  "images" : [
+    {
+      "filename" : "PTSD - G Herbo, Lil Uzi Vert, Juice WRLD, Chance the Rapper.jpg",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "images" : [
+    {
+      "filename" : "All Your Secrets (feat. Wiz Khalifa & Orry Jackson) [David May Mix] - Elite.jpg",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "images" : [
+    {
+      "filename" : "I'll Be Home For Christmas - From The Kacey Musgraves Christmas Show.jpg",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "images" : [
+    {
+      "filename" : "Scared Money (feat. J. Cole and Moneybagg Yo) - YG, J. Cole, Moneybagg Yo.jpg",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "images" : [
+    {
+      "filename" : "z28 - Curren$y, Wiz Khalifa, Harry Fraud.jpg",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

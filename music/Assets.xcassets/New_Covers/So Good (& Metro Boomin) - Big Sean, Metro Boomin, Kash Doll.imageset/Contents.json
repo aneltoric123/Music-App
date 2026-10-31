@@ -1,0 +1,21 @@
+{
+  "images" : [
+    {
+      "filename" : "So Good (& Metro Boomin) - Big Sean, Metro Boomin, Kash Doll.jpg",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "images" : [
+    {
+      "filename" : "Detroit Vs. Everybody - Eminem, Royce Da 5'9, Big Sean, Danny Brown, DeJ Loaf, Trick Trick.jpg",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

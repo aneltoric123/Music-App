@@ -1,0 +1,21 @@
+{
+  "images" : [
+    {
+      "filename" : "Untouchable   - 2Pac, Yaki Kadafi, Hussein Fatal, Gravy -  2Pac, Yaki Kadafi, Hussein Fatal, Gravy .jpg",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

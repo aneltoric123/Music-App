@@ -1,0 +1,21 @@
+{
+  "images" : [
+    {
+      "filename" : "SKYAMI (feat. Mango Foo) - Offset, Mango Foo.jpg",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

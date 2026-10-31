@@ -1,0 +1,21 @@
+{
+  "images" : [
+    {
+      "filename" : "On To The Next One - JAŸ-Z, Swizz Beatz.jpg",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

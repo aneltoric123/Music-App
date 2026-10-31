@@ -1,0 +1,21 @@
+{
+  "images" : [
+    {
+      "filename" : "Turks (with Gunna & ft. Travis Scott) - NAV, Gunna, Travis Scott.jpg",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

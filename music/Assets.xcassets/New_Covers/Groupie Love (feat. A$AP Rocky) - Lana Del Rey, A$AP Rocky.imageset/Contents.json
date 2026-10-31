@@ -1,0 +1,21 @@
+{
+  "images" : [
+    {
+      "filename" : "Groupie Love (feat. A$AP Rocky) - Lana Del Rey, A$AP Rocky.jpg",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

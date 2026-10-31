@@ -1,0 +1,21 @@
+{
+  "images" : [
+    {
+      "filename" : "You Can't Stop The Girl (From Disney's Maleficent Mistress of Evil) - Bebe Rexha.jpg",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}
