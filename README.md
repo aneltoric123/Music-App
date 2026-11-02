@@ -100,18 +100,18 @@ open music.xcodeproj
 
 ## 📷 Photos of App
 
-![image1](/screenshots/IMG_1660.PNG)
-![image2](/screenshots/IMG_1661.PNG)
-![image3](/screenshots/IMG_1662.PNG)
-![image4](/screenshots/IMG_1663.PNG)
-![image5](/screenshots/IMG_1664.PNG)
-![image6](/screenshots/IMG_1665.PNG)
-![image7](/screenshots/IMG_1666.PNG)
-![image8](/screenshots/IMG_1667.PNG)
-![image9](/screenshots/IMG_1668.PNG)
-![image10](/screenshots/IMG_1669.PNG)
-![image11](/screenshots/IMG_1670.PNG)
-![image12](/screenshots/IMG_1671.PNG)
+![image1](/screenshots/IMG_1660.png)
+![image2](/screenshots/IMG_1661.png)
+![image3](/screenshots/IMG_1662.png)
+![image4](/screenshots/IMG_1663.png)
+![image5](/screenshots/IMG_1664.png)
+![image6](/screenshots/IMG_1665.png)
+![image7](/screenshots/IMG_1666.png)
+![image8](/screenshots/IMG_1667.png)
+![image9](/screenshots/IMG_1668.png)
+![image10](/screenshots/IMG_1669.png)
+![image11](/screenshots/IMG_1670.png)
+![image12](/screenshots/IMG_1671.png)
 
 ---
 
