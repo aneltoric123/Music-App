@@ -1,1 +1,9 @@
-{"genre": [{"id_genre":1,"name":"Balkan"}]}
+{"genre": [{"id_genre":1,"name":"Balkan"},
+    {"id_genre":2,"name":"Rap"},
+    {"id_genre":3,"name":"Pop"},
+    {"id_genre":4,"name":"Hip-Hop"}
+    
+    
+    
+    
+]}

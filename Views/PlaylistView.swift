@@ -7,12 +7,11 @@ struct PlaylistView: View {
     @EnvironmentObject var authManager: AuthManager
     @Environment(\.modelContext) private var context
     @Environment(\.dismiss) private var dismiss
-
     var playlist: Playlist
 
     @State private var cachedEntries: [PlaylistSongs] = []
     @State private var songs: [Song] = []
-    @State private var animate = false
+    @State private var animate  = false
 
     var body: some View {
         ZStack {
@@ -29,7 +28,7 @@ struct PlaylistView: View {
                     songsSection
                 }
                 .padding(.bottom, 100)
-            }
+            }.scrollIndicators(.hidden)
             .onAppear(perform: setupView)
             .opacity(animate ? 1 : 0)
             .offset(y: animate ? 0 : 30)
@@ -200,6 +199,7 @@ extension PlaylistView {
 
                             audioManager.playSong(
                                 song,
+                            
                                 from: songs,
                                 playlistName: playlist.name,
                                 isOnlySong: false,

@@ -14,8 +14,8 @@ struct LibraryView: View {
                 TypeBarView()
                     .padding(.horizontal)
             }
-            .padding(.top, 20)
-        }
+            .padding(.top, 20).padding(.bottom,audioManager.currentSong != nil ? 120 : 10)
+        }.scrollIndicators(.hidden)
         .onAppear{
             if(audioManager.isShowingMiniPlayer == false){
                 audioManager.isShowingMiniPlayer.toggle()
@@ -169,9 +169,9 @@ struct TypeView: View {
         case "Artists":
             VStack(spacing: 10) {
                 ForEach(sortedArtists, id: \.id) { artist in
-                    NavigationLink(destination: ArtistView(artist: artist, isSearch: false)) {
+                    NavigationLink(destination: NewArtist(artist: artist)) {
                         ArtistSearchLibraryView(artist: artist)
-                    }.buttonStyle(PlainButtonStyle()).contentShape(Rectangle()) .navigationLinkIndicatorVisibility(.hidden)
+                    }.buttonStyle(PlainButtonStyle()) .navigationLinkIndicatorVisibility(.hidden)
                 }
             }
 
@@ -184,7 +184,7 @@ struct TypeView: View {
 
                 VStack {
                     ForEach(sortedArtists, id: \.id) { artist in
-                        NavigationLink(destination: ArtistView(artist: artist, isSearch: false)) {
+                        NavigationLink(destination: NewArtist(artist: artist)) {
                             ArtistSearchLibraryView(artist: artist)
                         }.buttonStyle(PlainButtonStyle()).contentShape(Rectangle())
                             .navigationLinkIndicatorVisibility(.hidden)
@@ -214,6 +214,7 @@ struct PlaylistCardView: View {
 
             ZStack {
                 if playlist.name == "Liked Songs" {
+                    
                     RoundedRectangle(cornerRadius: 8)
                         .fill(LinearGradient(colors: [.purple, .pink],
                                              startPoint: .topLeading,
@@ -271,10 +272,13 @@ struct SongCoversGrid: View {
 }
 struct SongCoverImage: View {
     let song: Song
+    var parsedComponets: [Substring] { song.title.split(separator: " - ")}
+    var displayName: String{
+        parsedComponets[0] + " - "  + parsedComponets[1]
+    }
     let size: CGFloat
     var body: some View {
-        Group {
-            Image(song.coverpath) .resizable() .scaledToFill() } .frame(width: size, height: size) .clipped()
+        AsyncCover(song: song, size: size)
     }
 }
 struct CreatePlaylistView: View {

@@ -16,13 +16,13 @@ enum Route: Hashable {
     case addSingleSong(Song)
 }
 struct ContentView: View {
-    @AppStorage("isDarkMode") private var isDarkMode = true
+    
     @EnvironmentObject var audioManager: AudioPlayerManager
     @EnvironmentObject var authManager: AuthManager
     @Environment(\.modelContext) private var context
-    @State private var showToast:Bool = false
-    @State private var toastMessage:String = ""
+    @Environment(\.scenePhase) private var scenePhase
     @State private var navPath = NavigationPath()
+
     var likedSongsPlaylist:Playlist { authManager.likedSongsPlaylist!
     }
     var likedSongs:[Song] {likedSongsPlaylist.songs}
@@ -71,8 +71,10 @@ struct ContentView: View {
                         AddSongPlaylistView(song: song)
                     }
                 }
-                .preferredColorScheme(isDarkMode ? .dark : .light)
-                
+              
+                .onChange(of: scenePhase) { _, phase in
+                    if phase != .active && audioManager.currentSong != nil { audioManager.saveNow() }
+                            }
                 .environmentObject(audioManager).environmentObject(authManager)
             
                
@@ -87,6 +89,7 @@ struct ContentView: View {
                 .transition(.move(edge: .bottom))
             }
             }
+        
         
     }
 
@@ -143,7 +146,5 @@ struct ContentView: View {
 
     }
     
-    #Preview {
-        ContentView()
-    }
+    
 

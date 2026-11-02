@@ -26,6 +26,7 @@ struct SongSearchView: View {
     var song: Song
     var likedSongsPlaylist: Playlist
     var likedSongs:[Song] {likedSongsPlaylist.songs}
+    
     @Query(sort: \SongSearchHistory.date,order: .reverse) private var searches: [SongSearchHistory]
     private var isBlocked: Bool {
         user.blockedSongs.contains { $0.id == song.id } ||
@@ -34,18 +35,19 @@ struct SongSearchView: View {
         }
     }
     @Environment(\.modelContext) private var context
+    var parsedComponets:[Substring] {song.title.split(separator: " - ")}
+    var displayName: String{
+        parsedComponets[0] + " - "  + parsedComponets[1]
+    }
     var body: some View {
         
         HStack {
                 HStack(spacing: 10) {
-                    let coverName = song.coverpath
+                    
                     if(isBlocked){
                         ZStack{
-                            Image(coverName)
-                                .resizable()
-                                .aspectRatio(contentMode: .fill)
-                                .frame(width: 75, height: 75)
-                                .cornerRadius(100)
+                            AsyncCover(song: song, size: 63)
+                            
                                 .opacity(1)
                             Image(systemName: "slash.circle.fill") .font(.system(size: 40))
                                 .foregroundColor(.white)
@@ -54,23 +56,33 @@ struct SongSearchView: View {
                         }
                     }
                     else{
-                        Image(coverName)
-                            .resizable()
-                            .scaledToFit()
-                            .frame(width: 75, height: 75)
-                            .cornerRadius(20)
+                        
+                        if let url = resolveCoverURL(for: song){
+                            AsyncCover(song: song, size: 52)
+                                        } else {
+                                            Image(systemName: "music.note")
+                                                .resizable()
+                                                .scaledToFit()
+                                                .frame(width: 52, height: 52)
+                                                .foregroundColor(.gray)
+                                        }
+                                    
+                           
                     }
                         
                     
                     VStack(alignment: .leading) {
-                        Text(song.title)
-                            .font(.headline).bold()
-                            .foregroundColor(.white)
+                        
+                        Text(parsedComponets[0])
+                            .font(.headline).fontWeight(.regular)
+                            .truncationMode(.tail)
+                           .foregroundColor(.white)
                             .lineLimit(1)
                         
-                        Text(formatArtists(song.artists))
+                        Text("Song" + " ݁ ⋅ " + parsedComponets[1])
                             .foregroundColor(.gray)
                             .font(.subheadline)
+                            .truncationMode(.tail)
                             .lineLimit(1)
                     }
                 }
@@ -103,7 +115,7 @@ struct SongSearchView: View {
                 
             } label: {
                 Image(systemName: "ellipsis.circle")
-                    .font(.title3)
+                    .font(.title2)
                     .foregroundColor(.secondary)
             }.compositingGroup()
         }.onTapGesture {
@@ -138,7 +150,7 @@ struct SongSearchView: View {
     @MainActor func likeSong(){
         
         if(likedSongs.contains(song)){
-            likedSongsPlaylist.entries.removeAll(where: {$0.song.coverpath == song.coverpath})
+            likedSongsPlaylist.entries.removeAll(where: {$0.song.title == song.title})
             try? context.save()
         }
         else{

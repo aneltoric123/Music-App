@@ -12,11 +12,11 @@ import SwiftData
 @Model
 
 final class Genre {
-    var id: UUID
+    var id_genre: Int
     var name: String
     @Relationship var songs: [Song]
-    init(id: UUID = UUID(), name: String) {
-        self.id = id
+    init(id: Int, name: String) {
+        self.id_genre = id
         self.name = name
         self.songs = []
     }

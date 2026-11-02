@@ -5,26 +5,6 @@
 //  Created by Anel Torić on 13. 3. 26.
 //
 
-//
-//  ArtistSearchview.swift
-//  music
-//
-//  Created by Anel Torić on 11. 3. 26.
-//
-
-//
-//  SongSearchView.swift
-//  music
-//
-//  Created by Anel Torić on 5. 3. 26.
-//
-
-//
-//  SongCoverView.swift
-//  music
-//
-//  Created by Anel Torić on 5. 3. 26.
-//
 
 import SwiftUI
 import Foundation
@@ -53,25 +33,34 @@ struct ArtistSearchLibraryView: View {
        }
     @Environment(\.modelContext) private var context
     var body: some View {
-        NavigationLink(destination: ArtistView(artist: artist,isSearch: false),)
+        NavigationLink(destination: NewArtist(artist: artist),)
         {
-            HStack(spacing: 10){
-                if let firstMatchArtist = latestSongsByArtist.first(where: {
-                    song in
-                    !song.artists.isEmpty && song.artists[0].name == artist.name
-                })
-                {
-                Image(firstMatchArtist.coverpath).resizable().scaledToFit().frame(width:100,height:100).cornerRadius(100)
-                        }
+           
+                HStack{
+                    if let firstMatchArtist = latestSongsByArtist.first(where: {
+                        song in
+                        !song.artists.isEmpty && song.artists[0].name == artist.name
+                    })
+                    {
+                        AsyncCover(song: firstMatchArtist, size: 100)
+                    }
                     
+                    
+                    
+                    VStack(alignment: .leading){
+                        Text(artist.name)
+                            .foregroundColor(.white)
+                            .font(.title)
+                            .lineLimit(1)
+                            .fontWeight(.regular)
+                        Text("Artist").font(.title2).fontWeight(.regular).foregroundColor(.gray)
+                    }
+                    Spacer()
+                }.padding(.horizontal,20)
                 
-                VStack(alignment: .leading){
-                    Text(artist.name)
-                        .foregroundColor(.gray).lineLimit(1).truncationMode(.tail).font(.title).frame(maxWidth: 300,alignment: .leading)
-                }
-            }.buttonStyle(PlainButtonStyle()).contentShape(Rectangle())
-            
-        }
+                
+            }
+        
         
     }
     

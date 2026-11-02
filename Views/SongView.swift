@@ -75,6 +75,10 @@ struct SongViewPlaying:View {
         
         return 1
     }
+    var parsedComponets: [Substring] { song.title.split(separator: " - ")}
+    var displayName: String{
+        parsedComponets[0] + " - "  + parsedComponets[1]
+    }
    
     @Binding var showToast: Bool
     @Binding var toastMessage: String
@@ -85,9 +89,8 @@ struct SongViewPlaying:View {
         ZStack{
             LinearGradient(
                 colors: [
-                    Color.black,
-                    Color.blue.opacity(0.6),
-                    Color.black
+                    Color(red: 0.1, green: 0.1, blue: 0.15),
+                    Color(red: 0.05, green: 0.05, blue: 0.1)
                 ],
                 startPoint: .top,
                 endPoint: .bottom
@@ -112,6 +115,20 @@ struct SongViewPlaying:View {
                                 Label("Like song", systemImage: "heart")
                             }
                         }
+                        Section("Artists"){
+                            ForEach(song.artists){ artist in
+                                NavigationLink(destination:NewArtist(artist: artist )){
+                                    Label("\(artist.name)",systemImage:"person.text.rectangle.fill")
+                                }
+                            }
+                        }
+                        Section("Album"){
+                            if(song.album != nil && song.album!.name != "Single"){
+                                NavigationLink(destination: AlbumView(album: song.album!, isSearch: false)){
+                                    Label("\(song.album!.name)",systemImage:"list.bullet.rectangle.fill")
+                                }
+                            }
+                        }
                         if(!authManager.currentUser!.blockedSongs.contains(where: {$0.id == song.id})){
                             Button("Block song", systemImage: "play.slash.fill", action: {
                                 hideSong(isBlocked: false
@@ -132,30 +149,30 @@ struct SongViewPlaying:View {
                     }.compositingGroup()
 
                 }
-                Image(song.coverpath)
-                    .resizable()
-                    .scaledToFit()
-                    .frame(width: 280, height: 280)
-                    .clipShape(RoundedRectangle(cornerRadius: 20))
-                    .shadow(color: .black.opacity(0.5), radius: 20, y: 10)
-                    .rotationEffect(.degrees(audioManager.isPlaying ? 360 : 0))
-                    .animation(
-                        audioManager.isPlaying ?
-                        .linear(duration: 20).repeatForever(autoreverses: false) :
-                        .default,
-                        value: audioManager.isPlaying
-                    ).scaleEffect(audioManager.isPlaying ? 1.03 : 1.0)
-                    .animation(.easeInOut(duration: 2).repeatForever(autoreverses: true), value: audioManager.isPlaying)
+                
+                if let url = resolveCoverURL(for: song){
+                    AsyncCover(song: song, size: 200) .clipShape(RoundedRectangle(cornerRadius: 20))
+                                        .shadow(color: .black.opacity(0.5), radius: 20, y: 10)
+                                        .scaleEffect(audioManager.isPlaying ? 1.03 : 1.0)
+                                        .animation(.easeInOut (duration: 2))
+                                } else {
+                                    Image(systemName: "music.note")
+                                        .resizable()
+                                        .scaledToFit()
+                                        .frame(width: 200, height: 200)
+                                        .foregroundColor(.gray)
+                                }
+                            
+                  
                 VStack(spacing: 8) {
-                    Text(song.title)
+                    Text(parsedComponets[0])
                         .font(.title)
                         .fontWeight(.bold)
                         .foregroundStyle(.white)
-                    NavigationLink(destination: ArtistView(artist:song.artists[0], isSearch: false)){
-                        Text(formatArtists(song.artists))
+                    Text(parsedComponets[1])
                             .font(.title2)
                             .foregroundStyle(.gray)
-                    }
+                    
                 }
                 Button {
                     likeSong()
@@ -187,18 +204,21 @@ struct SongViewPlaying:View {
                 .padding(.horizontal)
                 HStack(spacing: 40) {
                     Spacer()
-                    Button {
+                    Button(action: {
                         audioManager.togglePlayPause()
                         audioManager.playPrevious()
                         if let previous = audioManager.currentSong {
-                            if navPath.count >= 1 {
-                                navPath.removeLast(1)
+                            if navPath.count > 1 {
+                                navPath.removeLast(navPath.count - 1)
                             }
                             navPath.append(Route.song(previous))
                         }
-                    } label: {
-                        Image(systemName: "backward.fill").tint(audioManager.currentIndex != 0 ?.white :.gray).disabled(audioManager.currentIndex == 0)
+                    }) {
+                        Image(systemName: "backward.fill")
+                            .font(.system(size: 20))
+                            .foregroundColor(audioManager.currentIndex != 0 ? .white : .gray.opacity(0.5))
                     }
+                    .disabled(audioManager.currentIndex == 0)
                     Button {
                         audioManager.togglePlayPause()
                     } label: {
@@ -208,18 +228,21 @@ struct SongViewPlaying:View {
                     }
                         .scaleEffect(audioManager.isPlaying ? 1.1 : 1.0)
                         .animation(.spring(response: 0.3), value: audioManager.isPlaying)
-                    Button {
+                    Button(action: {
                         audioManager.togglePlayPause()
                         audioManager.playNext()
                         if let next = audioManager.currentSong {
-                            if navPath.count >= 1 {
-                                navPath.removeLast(1)
+                            if navPath.count > 1 {
+                                navPath.removeLast(navPath.count - 1)
                             }
                             navPath.append(Route.song(next))
                         }
-                    } label: {
-                        Image(systemName: "forward.fill").tint(audioManager.currentIndex + 1 != audioManager.playlist.count ?.white :.gray).disabled(audioManager.currentIndex + 1 == audioManager.playlist.count)
+                    }) {
+                        Image(systemName: "forward.fill")
+                            .font(.system(size: 20))
+                            .foregroundColor(audioManager.currentIndex + 1 != audioManager.playlist.count ? .white : .gray.opacity(0.5))
                     }
+                    .disabled(audioManager.currentIndex + 1 == audioManager.playlist.count)
                     HStack{
                         
                         NavigationLink(destination: QueueView(navPath: $navPath)) {
@@ -237,15 +260,24 @@ struct SongViewPlaying:View {
                         Text(toastMessage)
                             .font(.subheadline)
                             .fontWeight(.medium)
+                            .foregroundColor(.white)
                             .padding(.horizontal, 20)
                             .padding(.vertical, 12)
-                            .background(toastMessage == "Added to Liked Songs" ? .green  : .red)
+                            .background(
+                                toastMessage == "Added to Liked Songs"
+                                ? Color.green
+                                : Color.red
+                            )
                             .clipShape(Capsule())
                             .shadow(radius: 10)
                             .padding(.bottom, 30)
-                            .transition(.move(edge: .bottom).combined(with: .opacity))
+                            .transition(
+                                .move(edge: .bottom)
+                                .combined(with: .opacity)
+                            )
+                            .zIndex(999)
                     }
-                }
+                }.animation(.spring(duration: 0.4), value: showToast)
                
             }
             
@@ -255,16 +287,29 @@ struct SongViewPlaying:View {
                 audioManager.isShowingMiniPlayer = false
                 audioManager.isShowingMiniPlayerBottom = false
                 
-        }
-            .frame(alignment: .top)
-        .animation(.spring(duration: 0.4), value: showToast)
+            }
+            .onChange(of: audioManager.currentTime) { newValue in
+                if audioManager.totalDuration.isFinite && !audioManager.totalDuration.isNaN {
+                    if newValue >= audioManager.totalDuration - 0.5 {
+                        if audioManager.currentIndex < audioManager.playlist.count - 1 {
+                            audioManager.playNext()
+                        } else {
+                            audioManager.stopQueue()
+                        }
+                    }
+                }
+            }
+           
+            
+            
+        
         
     }
 
     @MainActor func likeSong(){
         
         if(likedSongs.contains(song)){
-            likedSongsPlaylist.entries.removeAll(where: {$0.song.coverpath == song.coverpath})
+            likedSongsPlaylist.entries.removeAll(where: {$0.song.title == song.title})
             try? context.save()
         }
         else{
@@ -316,6 +361,10 @@ struct SongViewViewing:View {
     var song: Song
     @Binding var navPath: NavigationPath
     let onLike:() -> Void
+    var parsedComponets: [Substring] { song.title.split(separator: " - ")}
+    var displayName: String{
+        parsedComponets[0] + " - "  + parsedComponets[1]
+    }
     @Binding var showToast: Bool
     @Binding var toastMessage: String
     var likedSongsPlaylist:Playlist { authManager.likedSongsPlaylist!
@@ -326,9 +375,8 @@ struct SongViewViewing:View {
             
             LinearGradient(
                 colors: [
-                    Color.black,
-                    Color.blue.opacity(0.6),
-                    Color.black
+                    Color(red: 0.1, green: 0.1, blue: 0.15),
+                    Color(red: 0.05, green: 0.05, blue: 0.1)
                 ],
                 startPoint: .top,
                 endPoint: .bottom
@@ -356,6 +404,20 @@ struct SongViewViewing:View {
                                 Label("Like song", systemImage: "heart")
                             }
                         }
+                        Section("Artists"){
+                            ForEach(song.artists){ artist in
+                                NavigationLink(destination:NewArtist(artist: artist)){
+                                    Label("\(artist.name)",systemImage:"person.text.rectangle.fill")
+                                }
+                            }
+                        }
+                        Section("Album"){
+                            if(song.album != nil && song.album!.name != "Single"){
+                                NavigationLink(destination:AlbumView(album: song.album!, isSearch: false)){
+                                    Label("\(song.album!.name)",systemImage:"list.bullet.rectangle.fill")
+                                }
+                            }
+                        }
                         
                         if(!authManager.currentUser!.blockedSongs.contains(where: {$0.id == song.id})){
                             Button("Block song", systemImage: "play.slash.fill", action: {
@@ -380,24 +442,30 @@ struct SongViewViewing:View {
               
                 
                 
-                Image(song.coverpath)
-                    .resizable()
-                    .scaledToFit()
-                    .frame(width: 280, height: 280)
-                    .clipShape(RoundedRectangle(cornerRadius: 20))
-                    .shadow(color: .black.opacity(0.5), radius: 20, y: 10)
+                
+                if let url = resolveCoverURL(for: song){
+                    AsyncCover(song: song, size: 200)
+                                   
+                                } else {
+                                    Image(systemName: "music.note")
+                                        .resizable()
+                                        .scaledToFit()
+                                        .frame(width: 200, height: 200)
+                                        .foregroundColor(.gray)
+                                }
+                            
                 
                 
                 VStack(spacing: 10) {
-                    Text(song.title)
+                    Text(parsedComponets[0])
                         .font(.title)
                         .fontWeight(.bold)
                         .foregroundStyle(.white)
-                    NavigationLink(destination: ArtistView(artist:song.artists[0], isSearch: false)){
-                        Text(formatArtists(song.artists))
+                   
+                        Text(parsedComponets[1])
                             .font(.title2)
                             .foregroundStyle(.gray)
-                    }
+                    
                     
                     Button{
                         likeSong()
@@ -441,14 +509,25 @@ struct SongViewViewing:View {
                         audioManager.isShowingMiniPlayerBottom = true
                         audioManager.isShowingMiniPlayer = false
                     }
+                }.onChange(of: audioManager.currentTime) { newValue in
+                    if audioManager.totalDuration.isFinite && !audioManager.totalDuration.isNaN {
+                        if newValue >= audioManager.totalDuration - 0.5 {
+                            if audioManager.currentIndex < audioManager.playlist.count - 1 {
+                                audioManager.playNext()
+                            } else {
+                                audioManager.stopQueue()
+                            }
+                        }
+                    }
                 }
+            
         } .animation(.spring(duration: 0.4), value: showToast)
     }
 
     @MainActor func likeSong(){
         
         if(likedSongs.contains(song)){
-            likedSongsPlaylist.entries.removeAll(where: {$0.song.coverpath == song.coverpath})
+            likedSongsPlaylist.entries.removeAll(where: {$0.song.id_song == song.id_song})
             try? context.save()
         }
         else{

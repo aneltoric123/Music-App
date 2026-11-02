@@ -91,6 +91,7 @@ struct AddSongPlaylistView: View {
                     } ? playlist.id_playlist : nil
                 })
                 audioManager.isShowingMiniPlayer = false
+                audioManager.isShowingMiniPlayerBottom = false
             }
         
     }
@@ -132,12 +133,13 @@ struct AddSongPlaylistView: View {
 
 struct SongHeaderView: View {
     let song: Song
-
+    var parsedComponets: [Substring] { song.title.split(separator: " - ")}
+    var displayName: String{
+        parsedComponets[0] + " - "  + parsedComponets[1]
+    }
     var body: some View {
         HStack(spacing: 16) {
-            Image(song.coverpath)
-                    .resizable()
-                    .scaledToFill()
+            AsyncCover(song: song, size: 60)
             
         }
         .frame(width: 60, height: 60)
@@ -145,11 +147,11 @@ struct SongHeaderView: View {
         .clipped()
 
         VStack(alignment: .leading, spacing: 4) {
-            Text(song.title)
+            Text(parsedComponets[0])
                 .font(.headline)
                 .foregroundColor(.white)
                 .lineLimit(1)
-            Text(song.artists.formatted())
+            Text(parsedComponets[1])
                 .font(.subheadline)
                 .foregroundColor(.gray)
                 .lineLimit(1)
@@ -260,13 +262,12 @@ struct PlaylistCoverViewAdd: View {
 struct SongCoverImageAdd: View {
     let song: Song
     let size: CGFloat
-
+    var parsedComponets: [Substring] { song.title.split(separator: " - ")}
+    var displayName: String{
+        parsedComponets[0] + " - "  + parsedComponets[1]
+    }
     var body: some View {
-            Image(song.coverpath)
-                .resizable()
-                .scaledToFill()
-                .frame(width: size, height: size)
-                .clipped()
+        AsyncCover(song: song, size: size)
     }
 }
 

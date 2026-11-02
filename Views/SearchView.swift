@@ -12,6 +12,7 @@ import SwiftData
 struct SearchView: View {
     @State private var searchText = ""
     @FocusState private var isFocused: Bool
+    
     @EnvironmentObject var audioPlayer: AudioPlayerManager
     @EnvironmentObject var authManager:AuthManager
     var user:User{
@@ -19,7 +20,7 @@ struct SearchView: View {
     }
     @State private var isSearching = false
     @State private var searchTask: Task<Void, Never>?
-    @State private var searchResultsSong: [Song] = []
+    
     @State private var showToast = false
     @State private var toastMessage = ""
     var likedSongsPlaylist:Playlist {
@@ -27,18 +28,23 @@ struct SearchView: View {
         
     }
     var likedSongs:[Song] {likedSongsPlaylist.songs}
+    @State private var searchResultsSong: [Song] = []
     @State private var searchResultsArtist: [Artist] = []
+    @State private var searchResultsAlbum: [Album] = []
+    @State private var searchResultsSongAlbum:[Song] = []
     @Environment(\.modelContext) private var context
     enum UnifiedSearch: Identifiable {
         case search(SearchHistory)
         case song(SongSearchHistory)
         case artist(ArtistSearchHistory)
+        case album(AlbumSearchHistory)
         
         var id: UUID {
             switch self {
             case .search(let s): return s.id
             case .song(let s): return s.id
             case .artist(let a): return a.id
+            case .album(let a): return a.id
             }
         }
         
@@ -47,6 +53,7 @@ struct SearchView: View {
             case .search(let s): return s.date
             case .song(let s): return s.date
             case .artist(let a): return a.date
+            case .album(let a): return a.date
             }
         }
     }
@@ -57,13 +64,14 @@ struct SearchView: View {
         }
 
         let combined =
-        user.searchHistory.prefix(10).map(UnifiedSearch.search) +
-        user.songSearchHistory.prefix(10).map(UnifiedSearch.song) +
-        user.artistSearchHistory.prefix(10).map(UnifiedSearch.artist)
+        user.searchHistory.prefix(100).map(UnifiedSearch.search) +
+        user.songSearchHistory.prefix(100).map(UnifiedSearch.song) +
+        user.artistSearchHistory.prefix(100).map(UnifiedSearch.artist) +
+        user.albumSearchHisotry.prefix(100).map(UnifiedSearch.album)
 
         return combined
             .sorted { $0.date > $1.date }
-            .prefix(20)
+            .prefix(30)
             .map { $0 }
     }
     
@@ -115,22 +123,36 @@ struct SearchView: View {
                                 }
                             }
                         }
+                        .onChange(of: isFocused){
+                            if isFocused{
+                                audioPlayer.isShowingMiniPlayer = false
+                                audioPlayer.isShowingMiniPlayerBottom = false
+                            }
+                            else{
+                                audioPlayer.isShowingMiniPlayer = true
+                                audioPlayer.isShowingMiniPlayerBottom = false
+                            }
+                        }
                     if !searchText.isEmpty {
                         Button {
                             withAnimation {
                                 searchText = ""
                                 isFocused = false
                                 isSearching = false
-                                audioPlayer.isShowingMiniPlayerBottom = false
-                                audioPlayer.isShowingMiniPlayer = true
                                 searchResultsSong = []
                                 searchResultsArtist = []
+                                searchResultsSongAlbum = []
+                                searchResultsAlbum = []
                             }
                         } label: {
                             Image(systemName: "xmark.circle.fill").foregroundColor(.secondary)
                         }
                     } else {
-                        Button("Cancel") { isFocused = false }
+                        Button("Cancel") { isFocused = false; audioPlayer.isShowingMiniPlayer = true;
+                            audioPlayer.isShowingMiniPlayerBottom = false
+                            isSearching = false
+                            
+                        }
                             .foregroundColor(.accentColor)
                     }
                 }
@@ -146,7 +168,7 @@ struct SearchView: View {
                                 ForEach(searchResultsArtist){
                                     artist in
                                     
-                                    NavigationLink(destination: ArtistView(artist: artist, isSearch: true)
+                                    NavigationLink(destination: NewArtist(artist: artist)
                                         .onAppear {
                                             performSearchArtist(artist: artist)
                                         }
@@ -158,9 +180,33 @@ struct SearchView: View {
                                     
                                 }
                                 
+                                
+                                ForEach(searchResultsAlbum){
+                                    album in
+                                    
+                                    NavigationLink(destination: AlbumView(album: album, isSearch: true)
+                                        .onAppear {
+                                            performSearchAlbum(album:album)
+                                        }.onTapGesture{
+                                            isFocused = false
+                                            isSearching = false
+                                            searchTask?.cancel()
+                                
+                                            searchTask = nil
+                                        }
+                                    ) {
+                                        AlbumSearchView(album: album)
+                                    }.contentShape(Rectangle())
+                                        .navigationLinkIndicatorVisibility(.hidden)
+                                    
+                                    
+                                }
                                 ForEach(searchResultsSong) { song in
                                     Button {
                                         audioPlayer.playSong(song, from: audioPlayer.playlist,isOnlySong: true)
+                        
+                                        isFocused = false
+                                        isSearching = false
                                     } label: {
                                         SongSearchView(onLike: {
                                             toastMessage  = (!(likedSongs.contains(song))) ? "Removed from Liked Songs" : "Added to Liked Songs"
@@ -175,17 +221,41 @@ struct SearchView: View {
                                     
                                     
                                 }
+                                ForEach(searchResultsSongAlbum) { song in
+                                    Button {
+                                        audioPlayer.playSong(song, from: audioPlayer.playlist,isOnlySong: true)
+
+                                        isFocused = false
+                                        isSearching = false
+                                        searchTask?.cancel()
+                                        searchTask = nil
+                                    } label: {
+                                        SongSearchView(onLike: {
+                                            toastMessage  = (!(likedSongs.contains(song))) ? "Removed from Liked Songs" : "Added to Liked Songs"
+                                            UIImpactFeedbackGenerator(style: .light).impactOccurred()
+                                            showToast = true
+                                            
+                                            DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+                                                showToast = false
+                                            }
+                                        }, song: song, likedSongsPlaylist: likedSongsPlaylist)
+                                    }.contentShape(Rectangle())
+                                    
+                                    
+                                }
+                                
+                                
                             } header: {
-                                if(searchResultsSong.count + searchResultsArtist.count == 0){
+                                if(searchResultsSong.count + searchResultsArtist.count + searchResultsAlbum.count + searchResultsSongAlbum.count == 0){
                                     Text("No results for \(searchText)")
                                 }
-                                else if(searchResultsSong.count + searchResultsArtist.count == 1){
+                                else if(searchResultsSong.count + searchResultsArtist.count + searchResultsSongAlbum.count + searchResultsAlbum.count  == 1){
                                     Text("1 Result for \(searchText)")
                                 }
                                 else{
-                                    Text("\(searchResultsSong.count + searchResultsArtist.count) Results for \(searchText)")
+                                    Text("\(searchResultsSong.count + searchResultsArtist.count + searchResultsSongAlbum.count + searchResultsAlbum.count) Results for \(searchText)")
                                 }
-                            }
+                            }.padding(.bottom,audioPlayer.currentSong != nil ? 100 : 10)
                         }.scrollIndicators(.hidden)
                         
                     } else {
@@ -211,12 +281,13 @@ struct SearchView: View {
                                                         Image(systemName: "clock.arrow.circlepath")
                                                         Text(s.text)
                                                     }.contentShape(Rectangle()).padding(.bottom,10)
-                                                    
+                                                        .padding(.horizontal)
+                                                   Spacer()
                                                 }
                                                 
                                             case .artist(let s):
                                                 
-                                                NavigationLink(destination: ArtistView(artist:s.artist, isSearch: true)
+                                                NavigationLink(destination: NewArtist(artist:s.artist)
                                                     .onAppear {
                                                         performSearchArtist(artist: s.artist)
                                                     }
@@ -224,10 +295,24 @@ struct SearchView: View {
                                                     ArtistSearchView(artist: s.artist)
                                                 }.contentShape(Rectangle())
                                                     .navigationLinkIndicatorVisibility(.hidden)
+                                            case .album(let a):
                                                 
+                                                NavigationLink(destination: AlbumView(album:a.album, isSearch: true)
+                                                    .onAppear {
+                                                        performSearchAlbum(album: a.album)
+                                                    }
+                                                ) {
+                                                    AlbumSearchView(album: a.album)
+                                                }.contentShape(Rectangle())
+                                                    .navigationLinkIndicatorVisibility(.hidden)
                                             case .song(let s):
                                                 Button {
                                                     audioPlayer.playSong(s.song, from: audioPlayer.playlist,isOnlySong: true)
+                                
+                                                    isFocused = false
+                                                    isSearching = false
+                                                    searchTask?.cancel()
+                                                    searchTask = nil
                                                 } label: {
                                                     SongSearchView(onLike: {
                                                         toastMessage  = (!(likedSongs.contains(s.song))) ? "Removed from Liked Songs" : "Added to Liked Songs"
@@ -239,7 +324,7 @@ struct SearchView: View {
                                                         }
                                                     }, song: s.song, likedSongsPlaylist: likedSongsPlaylist)
                                                 }.contentShape(Rectangle())
-                                                
+                                            
                                             }
                                             
                                             Button {
@@ -250,21 +335,28 @@ struct SearchView: View {
                                             .buttonStyle(BorderlessButtonStyle()).padding(.bottom,10).padding(.trailing)
                                         }
                                     }
-                                }
+                                }.padding(.bottom,audioPlayer.currentSong != nil ? 100 : 10)
                                 
                                 
                            
-                        }
+                            }.scrollIndicators(.hidden)
                     }
                 }
             }.navigationTitle("Search")
                 .onAppear{
                     isFocused = true
+                    searchText = ""
+                    audioPlayer.isShowingMiniPlayer = false
+                    audioPlayer.isShowingMiniPlayerBottom = false
                 }
                 .navigationBarTitleDisplayMode(.inline)
                 .onDisappear{
+                    isFocused = false
+                    isSearching = false
                     searchTask?.cancel()
+                    searchTask = nil
                 }
+                
             
             VStack
             {
@@ -283,7 +375,7 @@ struct SearchView: View {
                         )
                         .clipShape(Capsule())
                         .shadow(radius: 10)
-                        .padding(.bottom, 80)
+                        .padding(.bottom, 140)
                         .transition(
                             .move(edge: .bottom)
                             .combined(with: .opacity)
@@ -307,13 +399,27 @@ struct SearchView: View {
 
         try? context.save()
     }
+    func performSearchAlbum(album: Album) {
+        guard let user = authManager.currentUser else { return }
+
+        if let existing = user.albumSearchHisotry.first(where: { $0.album == album }) {
+            existing.date = .now
+        } else {
+            let entry = AlbumSearchHistory(album: album, user: user)
+            context.insert(entry)
+        }
+
+        try? context.save()
+    }
     private func updateSearchResults() {
         let trimmed = searchText.trimmingCharacters(in: .whitespacesAndNewlines)
 
-        guard trimmed.count >= 2 else {
+        guard trimmed.count >= 3 else {
             isSearching = false
             searchResultsSong = []
             searchResultsArtist = []
+            searchResultsAlbum = []
+            searchResultsSongAlbum = []
             return
         }
 
@@ -330,11 +436,22 @@ struct SearchView: View {
                 )
             )
 
-            searchResultsArtist = matchedArtists
-
-
+           
+            
+            
+            let matchedAlbums = try context.fetch(
+                FetchDescriptor<Album>(
+                    predicate: #Predicate {
+                        $0.name.localizedStandardContains(trimmed)
+                    },
+                    sortBy: [SortDescriptor(\Album.name)]
+                )
+            )
+            
+            
+           
           
-            let titleSongs = try context.fetch(
+            let titleSongs2 = try context.fetch(
                 FetchDescriptor<Song>(
                     predicate: #Predicate {
                         $0.title.localizedStandardContains(trimmed)
@@ -342,22 +459,38 @@ struct SearchView: View {
                     sortBy: [SortDescriptor(\Song.title)]
                 )
             )
-
-
+            var albumSongs:[Song] = []
+            var titleSongs:[Song] = []
+            for s in titleSongs2{
+                let parts = s.title.split(separator:" - ")
+                if (!parts[2].localizedStandardContains(parts[0]) && parts[2].localizedStandardContains(trimmed)){
+                    albumSongs.append(s)
+                }
+                    else{
+                    titleSongs.append(s)
+                }
+            }
+           
     
             let artistSongMatches = matchedArtists.flatMap(\.songs)
 
 
-            var seen = Set<UUID>()
+            var seen = Set<Int>()
 
-            searchResultsSong = (titleSongs + artistSongMatches).filter { song in
-                seen.insert(song.id).inserted
-            }
+            
+            searchResultsArtist = Array(matchedArtists.prefix(10))
+            searchResultsAlbum = Array(matchedAlbums.prefix(20))
+            searchResultsSong = Array((titleSongs.prefix(30) + artistSongMatches.prefix(20)).filter { song in
+                seen.insert(song.id_song).inserted
+            })
+            searchResultsSongAlbum = Array(albumSongs.prefix(30))
 
         } catch {
             print("Search failed:", error)
             searchResultsSong = []
             searchResultsArtist = []
+            searchResultsAlbum = []
+            searchResultsSongAlbum = []
         }
     }
     
@@ -423,7 +556,11 @@ struct SearchView: View {
         case .artist(let a):
             context.delete(a)
             user.artistSearchHistory.removeAll(where:{ a.artist == $0.artist && user == a.user})
+        case .album(let a):
+            context.delete(a)
+            user.albumSearchHisotry.removeAll(where: {a.album == $0.album && user == a.user})
         }
+   
         
         do {
             try context.save()

@@ -1,22 +1,19 @@
-//
-//  artist.swift
-//  music
-//
-//  Created by Anel Torić on 25. 2. 26.
-//
-
 import Foundation
 import SwiftData
 
 @Model
+final class Artist {
+    @Attribute(.unique) var id: Int
+    var name: String
 
-final class Artist{
-    @Attribute(.unique) var id: UUID
-    @Attribute var name: String
-    var songs: [Song]
-    init(id: UUID = UUID(), name: String) {
+    @Relationship(inverse: \Song.artists)
+    var songs: [Song] = []
+
+    @Relationship(inverse: \Album.artists)
+    var albums: [Album] = []
+
+    init(id: Int, name: String) {
         self.id = id
         self.name = name
-        self.songs = []
     }
 }

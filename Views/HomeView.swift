@@ -43,7 +43,7 @@ struct HomeView: View {
                     startPoint: .top,
                     endPoint: .bottom
                 )
-            )
+            ).padding(.bottom,audioManager.currentSong != nil ? 100 : 0)
             .navigationTitle("Home")
             .navigationBarTitleDisplayMode(.inline)
         .onAppear{
@@ -163,16 +163,16 @@ struct RecentlyPlayedGrid: View {
             let userHistory = history.filter {
                 $0.user?.id == userID
                 
-            }.prefix(20)
+            }.prefix(200)
             
-            var seen = Set<UUID>()
+            var seen = Set<Int>()
             recentlyPlayed = userHistory.compactMap { history in
                 guard let song = history.song else { return nil }
                 
-                if seen.contains(song.id) {
+                if seen.contains(song.id_song) {
                     return nil
                 } else {
-                    seen.insert(song.id)
+                    seen.insert(song.id_song)
                     return song
                 }
             }
@@ -246,7 +246,7 @@ struct NewSongGridFollowing: View {
                 }
             }
         }
-        let sorted = Array(artistFollowingSongs.sorted{ $0.dateAdded > $1.dateAdded}.prefix(20))
+        let sorted = Array(artistFollowingSongs.sorted{ $0.id_song > $1.id_song}.prefix(20))
         latestSongs = sorted
         isLoading = false
     }
@@ -304,7 +304,7 @@ struct NewSongGrid: View {
         errorMessage = nil
 
         var descriptor = FetchDescriptor<Song>(
-            sortBy: [SortDescriptor(\Song.dateAdded, order: .reverse)]
+            sortBy: [SortDescriptor(\Song.id_song, order: .reverse)]
         )
         descriptor.fetchLimit = 20
 
@@ -336,7 +336,7 @@ struct NewSongGrid: View {
                 }
             }
         }
-        let sorted = artistFollowingSongs.sorted{ $0.dateAdded < $1.dateAdded}
+        let sorted = artistFollowingSongs.sorted{ $0.id_song > $1.id_song}
         latestSongs = sorted
         isLoading = false
     }
@@ -426,7 +426,7 @@ struct SongCardViewHome: View {
     }
 
     var body: some View {
-        VStack(alignment: .leading, spacing: 8) {
+        VStack(alignment: .leading) {
            
             ZStack(alignment: .bottomTrailing) {
                 AlbumCoverImage(song: song)
@@ -460,19 +460,25 @@ struct SongCardViewHome: View {
             .frame(width: 140, height: 140)
             .cornerRadius(8)
 
-           
-            VStack(alignment: .leading, spacing: 4) {
-                Text(song.title)
-                    .font(.subheadline)
-                    .fontWeight(.semibold)
-                    .lineLimit(1)
-
-                Text(artistText)
-                    .font(.caption)
-                    .foregroundStyle(.secondary)
-                    .lineLimit(1)
+          
+            HStack {
+                VStack(alignment: .leading){
+                    Text(song.title.split(separator: " - ")[0])
+                        .font(.subheadline)
+                        .fontWeight(.semibold)
+                        .lineLimit(1)
+                    
+                    Text(artistText)
+                        .font(.caption)
+                        .foregroundStyle(.secondary)
+                        .lineLimit(1)
+                    
+                }
+                .frame(width: 140,alignment: .leading)
             }
-            .frame(width: 140)
+                
+            
+           
         }
         .frame(width: 140)
     }
@@ -481,16 +487,11 @@ struct SongCardViewHome: View {
 
 struct AlbumCoverImage: View {
     let song: Song
-
+    var parsedComponets: [Substring] { song.title.split(separator: " - ")}
+    var displayName: String{
+        parsedComponets[0] + " - "  + parsedComponets[1]
+    }
     var body: some View {
-        Group {
-            Image(song.coverpath)
-                    .resizable()
-                    .scaledToFill()
-            }
-            
-        
-        .frame(width: 140, height: 140)
-        .clipped()
+        AsyncCover(song: song, size: 140)
     }
 }

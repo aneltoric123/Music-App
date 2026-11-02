@@ -9,28 +9,24 @@ import SwiftData
 
 @Model
 final class Song:Hashable {
-    @Attribute(.unique) var id: UUID
-    var dateAdded =  Date()
+    @Attribute(.unique) var id_song: Int
     var title: String
     var filepath: String
-    var coverpath: String
     var genre: Genre?
+    var album: Album?
     static func == (lhs: Song, rhs: Song) -> Bool {
-            lhs.id == rhs.id
+            lhs.id_song == rhs.id_song
         }
 
         func hash(into hasher: inout Hasher) {
             hasher.combine(id)
         }
-    @Relationship(inverse: \Artist.songs)
     var artists: [Artist] = []
-
-    init(id: UUID = UUID(), dateAdded:Date = .now,title: String, filepath: String, coverpath: String) {
-        self.id = id
-        self.dateAdded = dateAdded
+    var primaryArtistId: Int?
+    init(id: Int,title: String,filepath:String) {
+        self.id_song = id
         self.title = title
         self.filepath = filepath
-        self.coverpath = coverpath
     }
 
     func addArtist(_ artist: Artist) {

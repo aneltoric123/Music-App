@@ -14,10 +14,13 @@ struct musicApp: App {
     let container: ModelContainer
     @StateObject private var authManager:AuthManager
     @StateObject private var audioManager: AudioPlayerManager
+
     init() {
         do {
             let schema = Schema([
                 Song.self,
+                Album.self
+                ,AlbumSearchHistory.self,
                 Artist.self,
                 Genre.self,
                 SearchHistory.self,
@@ -27,6 +30,7 @@ struct musicApp: App {
                 SongSearchHistory.self,
                 ArtistSearchHistory.self,
                 PlaylistSongs.self
+               
                 
             ])
             
@@ -75,11 +79,19 @@ struct musicApp: App {
             if authManager.isLoggedIn && !authManager.isUnlocked {
                 ProgressView("Unlocking...")
             }
-            else if authManager.isLoggedIn && authManager.isUnlocked {
+            else if authManager.isLoggedIn && authManager.isUnlocked{
+                
                 ContentView()
+                    .task {
+                            audioManager.restoreQueueIfNeeded()
+                        }
+                    
                     .environmentObject(audioManager)
                     .environmentObject(authManager)
+                    
+                    
             }
+            
             else {
                 LoginView()
                     .environmentObject(authManager)
@@ -88,4 +100,5 @@ struct musicApp: App {
         }
         .modelContainer(container)
     }
-}
+} 
+

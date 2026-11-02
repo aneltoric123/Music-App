@@ -34,8 +34,12 @@ struct PlaylistCoverView: View {
                             }
                             
                             ForEach(first2){ song in
-                                let covername = song.coverpath
-                                        Image(covername).resizable().scaledToFit().frame(width: 50, height: 50)
+                                var parsedComponets: [Substring] { song.title.split(separator: " - ")}
+                                var displayName: String{
+                                    parsedComponets[0] + " - "  + parsedComponets[1]
+                                }
+                                
+                                AsyncCover(song: song, size: 50)
                                     }
                                     
                             }
@@ -46,8 +50,12 @@ struct PlaylistCoverView: View {
                                 Array(playlist.entries.map(\.song).suffix(2))
                             }
                             ForEach(last2){ song in
-                                let covername = song.coverpath
-                                Image(covername).resizable().scaledToFit().frame(width: 50, height: 50)
+                                var parsedComponets: [Substring] { song.title.split(separator: " - ")}
+                                var displayName: String{
+                                    parsedComponets[0] + " - "  + parsedComponets[1]
+                                }
+                               
+                                AsyncCover(song: song, size: 50)
                                 
                                 
                             }

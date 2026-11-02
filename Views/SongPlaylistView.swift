@@ -17,31 +17,41 @@ struct SongPlaylistView: View {
         authManager.currentUser!
     }
     var isPlaylistSong:Bool {
-        audioManager.playlistTitle == playlist.name && audioManager.currentSong?.coverpath == song.coverpath
+        audioManager.playlistTitle == playlist.name && audioManager.currentSong?.title == song.title
     }
     var song:Song
+    var parsedComponets:[Substring] {
+        song.title.split(separator: " - "
+        )
+    }
+
+    var displayName: String{
+        parsedComponets[0] + " - "  + parsedComponets[1]
+    }
     var order:Int
     var playlist:Playlist
     var entry: PlaylistSongs
     @Environment(\.modelContext) private var context
     var body: some View {
         HStack(spacing: 10){
-            let coverName = song.coverpath
-            Image(coverName).resizable()
-                        .scaledToFit()
-                        .frame(width: 50,height: 50)
+            
+           
+                if let url = resolveCoverURL(for: song){
+                    AsyncCover(song: song, size: 52)
+                            } else {
+                                Image(systemName: "music.note")
+                                    .resizable()
+                                    .scaledToFit()
+                                    .frame(width: 52, height: 52)
+                                    .foregroundColor(.gray)
+                            }
+                        
              
             VStack(alignment: .leading){
-                Text(song.title)
-                    .font(.system(size: 17, weight: .semibold)).foregroundColor(isPlaylistSong ? .green : .white).shadow(
-                        color: isPlaylistSong ? .green.opacity(0.8) : .clear,
-                        radius: 8
-                    ).lineLimit(1).truncationMode(.tail).frame(maxWidth: .infinity,alignment: .leading).clipped().contentShape(Rectangle())
-                Text(formatArtists(song.artists))
-                    .foregroundColor(isPlaylistSong ? .green : .gray).shadow(
-                        color: isPlaylistSong ? .green.opacity(0.8) : .clear,
-                        radius: 8
-                    ).lineLimit(1).truncationMode(.tail).font(.system(size: 14, weight: .medium)).clipped().frame(maxWidth: .infinity,alignment: .leading)
+                Text(parsedComponets[0])
+                    .font(.system(size: 17, weight: .semibold)).foregroundColor(isPlaylistSong ? .green : .white).lineLimit(1).truncationMode(.tail).frame(maxWidth: .infinity,alignment: .leading).clipped().contentShape(Rectangle())
+                Text(parsedComponets[1])
+                    .foregroundColor(isPlaylistSong ? .green : .gray).lineLimit(1).truncationMode(.tail).font(.system(size: 14, weight: .medium)).clipped().frame(maxWidth: .infinity,alignment: .leading)
             }
             HStack{
                 Menu {
@@ -124,29 +134,27 @@ struct SongPlaylistView: View {
 
 struct SongHeaderView: View {
         let song: Song
-        
+    var parsedComponets: [Substring] { song.title.split(separator: " - ")}
+    var displayName: String{
+        parsedComponets[0] + " - "  + parsedComponets[1]
+    }
         var body: some View {
             HStack(spacing: 16) {
                 
                 ZStack {
-                    Image(song.coverpath)
-                            .resizable()
-                            .scaledToFill()
-                    
-                        
+                    AsyncCover(song: song, size: 60)
                 }
-                .frame(width: 60, height: 60)
                 .cornerRadius(8)
                 .clipped()
                 
                 
                 VStack(alignment: .leading, spacing: 4) {
-                    Text(song.title)
+                    Text(parsedComponets[0])
                         .font(.system(size: 17, weight: .semibold))
                         .foregroundColor(.white)
                         .lineLimit(1)
                     
-                    Text(formatArtists(song.artists))
+                    Text(parsedComponets[1])
                         .font(.system(size: 14, weight: .medium))
                         .foregroundColor(.gray)
                         .lineLimit(1)
@@ -262,15 +270,13 @@ struct PlaylistSelectionRow: View {
     struct SongCoverImageAdd: View {
         let song: Song
         let size: CGFloat
-        
+        var parsedComponets:[String] {song.title.split(separator: " - ") as! [String] as! [String] as! [String] as! [String] as! [String]}
+
+        var displayName: String{
+            parsedComponets[0] + " - "  + parsedComponets[1]
+        }
         var body: some View {
-            Group {
-                Image(song.coverpath)
-                        .resizable()
-                        .scaledToFill()
-            }
-            .frame(width: size, height: size)
-            .clipped()
+            AsyncCover(song: song, size: size)
         }
     }
     

@@ -25,6 +25,9 @@ final class User{
     @Relationship var songSearchHistory: [SongSearchHistory] = []
     @Relationship(deleteRule: .cascade, inverse: \ArtistSearchHistory.user)
     var artistSearchHistory: [ArtistSearchHistory] = []
+    @Relationship var albumSearchHistory: [AlbumSearchHistory] = []
+    @Relationship(deleteRule: .cascade, inverse: \AlbumSearchHistory.user)
+    var albumSearchHisotry: [AlbumSearchHistory] = []
     @Relationship var PlayHistory: [PlayHistory] = []
     init(id: UUID = UUID(), username: String,password:String,salt:String) {
         self.id = id
