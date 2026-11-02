@@ -1,6 +1,6 @@
 <div align="center">
 
-# 🎵 music
+# 🎵 Anels Music-App 
 
 A native iOS music player built entirely in **SwiftUI** and **SwiftData** — your library, your playlists, your music. No accounts, no ads, no cloud lock-in.
 
@@ -99,19 +99,19 @@ open music.xcodeproj
 ---
 
 ## 📷 Photos of App
-<img src="/screenshots/IMG_1660.png" width="100" height = "100"/>
-![image1](/screenshots/IMG_1660.png)
-![image2](/screenshots/IMG_1661.png)
-![image3](/screenshots/IMG_1662.png)
-![image4](/screenshots/IMG_1663.png)
-![image5](/screenshots/IMG_1664.png)
-![image6](/screenshots/IMG_1665.png)
-![image7](/screenshots/IMG_1666.png)
-![image8](/screenshots/IMG_1667.png)
-![image9](/screenshots/IMG_1668.png)
-![image10](/screenshots/IMG_1669.png)
-![image11](/screenshots/IMG_1670.png)
-![image12](/screenshots/IMG_1671.png)
+
+<img src="/screenshots/IMG_1660.png" width="300" height = "640"/>
+<img src="/screenshots/IMG_1661.png" width="300" height = "640"/>
+<img src="/screenshots/IMG_1662.png" width="300" height = "640"/>
+<img src="/screenshots/IMG_1663.png" width="300" height = "640"/>
+<img src="/screenshots/IMG_1664.png" width="300" height = "640"/>
+<img src="/screenshots/IMG_1665.png" width="300" height = "640"/>
+<img src="/screenshots/IMG_1666.png" width="300" height = "640"/>
+<img src="/screenshots/IMG_1667.png" width="300" height = "640"/>
+<img src="/screenshots/IMG_1668.png" width="300" height = "640"/>
+<img src="/screenshots/IMG_1669.png" width="300" height = "640"/>
+<img src="/screenshots/IMG_1670.png" width="300" height = "640"/>
+<img src="/screenshots/IMG_1671.png" width="300" height = "640"/>
 
 ---
 
