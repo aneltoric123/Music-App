@@ -99,7 +99,7 @@ open music.xcodeproj
 ---
 
 ## 📷 Photos of App
-
+<img src="/screenshots/IMG_1660.png" width="100" height = "100"/>
 ![image1](/screenshots/IMG_1660.png)
 ![image2](/screenshots/IMG_1661.png)
 ![image3](/screenshots/IMG_1662.png)
